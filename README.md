@@ -1,4 +1,4 @@
-# pdflare
+# pdflared
 
 > This project is an open source HTML to PDF rendering service designed to run Cloudflare Workers.
 
