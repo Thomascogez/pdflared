@@ -25,12 +25,23 @@ function App() {
 		useState<Record<string, unknown>>();
 
 	useEffect(() => {
-		const template = templates[activeTemplateName];
-		if (template) {
-			template.then(({ previewVariables: templatePreviewVariables }) =>
-				setPreviewVariables(templatePreviewVariables ?? {}),
-			);
+		let cancelled = false;
+
+		const templatePromise = templates[activeTemplateName];
+
+		if (!templatePromise) {
+			setPreviewVariables(undefined);
+			return;
 		}
+
+		templatePromise.then(({ previewVariables }) => {
+			if (cancelled) return;
+			setPreviewVariables(previewVariables ?? {});
+		});
+
+		return () => {
+			cancelled = true;
+		};
 	}, [activeTemplateName]);
 
 	const handleVariablesEdit = (data: { newData: unknown }) => {
