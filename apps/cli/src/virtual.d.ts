@@ -5,6 +5,7 @@ declare module "virtual:pdflared-templates" {
 		string,
 		Promise<{
 			Template: React.FC;
+			previewVariables?: Record<string, unknown>;
 			globalStyles?: string;
 		}>
 	>;

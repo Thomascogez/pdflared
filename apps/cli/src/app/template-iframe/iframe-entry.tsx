@@ -16,7 +16,7 @@ window.addEventListener("template-iframe-dispatch", async (event) => {
 			return;
 		}
 
-		const { Template, globalStyles } = template;
+		const { Template, globalStyles, previewVariables } = template;
 
 		if (globalStyles) {
 			const style = document.createElement("style");
@@ -24,7 +24,14 @@ window.addEventListener("template-iframe-dispatch", async (event) => {
 			document.head.appendChild(style);
 		}
 
-		return root.render(<Template />);
+		root.render(<Template />);
+
+		// probably not the best way to do this, need to figure out something better
+		if (previewVariables) {
+			setTimeout(() => window.injectTemplateVariables(previewVariables), 10);
+		}
+
+		return;
 	}
 
 	if (event.detail.type === "inject-variables") {

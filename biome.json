@@ -12,6 +12,7 @@
 			"package.json",
 			"turbo.json",
 			"apps/**",
+			"dogfood/**",
 			"packages/**",
 			"!apps/api/worker-configuration.d.ts"
 		]
@@ -46,7 +47,9 @@
 	},
 	"overrides": [
 		{
-			"includes": ["apps/api/**"],
+			"includes": [
+				"apps/api/**"
+			],
 			"linter": {
 				"rules": {
 					"style": {
