@@ -1,28 +1,29 @@
 {
-  "name": "@pdflare/api",
-  "type": "module",
-  "imports": {
-    "#*": "./src/*.ts"
-  },
-  "dependencies": {
-    "@cloudflare/puppeteer": "^1.0.4",
-    "@hono/zod-validator": "^0.7.6",
-    "drizzle-orm": "^0.45.1",
-    "hono": "^4.11.3",
-    "zod": "^4.3.2"
-  },
-  "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.11.1",
-    "@pdflare/typescript-config": "workspace:*",
-    "drizzle-kit": "^0.31.8",
-    "vitest": "~3.2.0"
-  },
-  "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
-    "test": "vitest run",
-    "test:watch": "vitest watch",
-    "migration-apply:local": "wrangler d1 migrations apply DB"
-  }
+	"name": "@pdflared/api",
+	"type": "module",
+	"imports": {
+		"#*": "./src/*.ts"
+	},
+	"dependencies": {
+		"@cloudflare/puppeteer": "^1.0.4",
+		"@hono/zod-validator": "^0.7.6",
+		"drizzle-orm": "^0.45.1",
+		"hono": "^4.11.3",
+		"zod": "^4.3.2"
+	},
+	"devDependencies": {
+		"@cloudflare/vitest-pool-workers": "^0.11.1",
+		"@pdflared/typescript-config": "workspace:*",
+		"drizzle-kit": "^0.31.8",
+		"vitest": "~3.2.0"
+	},
+	"scripts": {
+		"dev": "wrangler dev",
+		"deploy": "wrangler deploy --minify",
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
+		"test": "vitest run",
+		"test:watch": "vitest watch",
+		"migration-apply:local": "wrangler d1 migrations apply DB",
+		"check:types": "tsc --noEmit"
+	}
 }

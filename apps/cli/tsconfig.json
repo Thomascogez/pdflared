@@ -2,7 +2,8 @@
 	"extends": "@pdflared/typescript-config/base.json",
 	"compilerOptions": {
 		"jsx": "react-jsx",
-		"jsxImportSource": "hono/jsx"
+		"lib": ["ESNext.Array", "DOM", "ESNext"],
+		"types": ["vite/client"]
 	},
-	"exclude": ["__tests__/*.ts"]
+	"exclude": ["dist"]
 }

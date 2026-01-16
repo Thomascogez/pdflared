@@ -1,4 +1,4 @@
-import {createFactory} from "hono/factory";
+import { createFactory } from "hono/factory";
 import type { AppEnv } from "#types";
 
-export const $ = createFactory<AppEnv>()
+export const $ = createFactory<AppEnv>();

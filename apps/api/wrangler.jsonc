@@ -1,39 +1,41 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "pdflare-api",
-  "main": "src/index.ts",
-  "compatibility_date": "2025-12-31",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "observability": {
-    "enabled": true,
-    "head_sampling_rate": 1
-  },
-  "browser": {
-    "binding": "BROWSER"
-  },
-  "d1_databases": [{
-    "binding": "DB",
-    "database_name": "pdflare",
-    "database_id": "xxxxxxxx"
-  }],
-  "r2_buckets": [
-    {
-      "binding": "BUCKET",
-      "bucket_name": "pdflare"
-    }
-  ],
-  "durable_objects": {
-    "bindings": [{
-      "class_name": "BrowserRenderingDo",
-      "name": "BROWSER_RENDERING_DO",
-    }]
-  },
-  "migrations": [{
-    "tag": "v1",
-    "new_sqlite_classes": [
-      "BrowserRenderingDo"
-    ]
-  }]
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "pdflared-api",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-12-31",
+	"compatibility_flags": ["nodejs_compat"],
+	"observability": {
+		"enabled": true,
+		"head_sampling_rate": 1
+	},
+	"browser": {
+		"binding": "BROWSER"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "pdflared",
+			"database_id": "xxxxxxxx"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "BUCKET",
+			"bucket_name": "pdflared"
+		}
+	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"class_name": "BrowserRenderingDo",
+				"name": "BROWSER_RENDERING_DO"
+			}
+		]
+	},
+	"migrations": [
+		{
+			"tag": "v1",
+			"new_sqlite_classes": ["BrowserRenderingDo"]
+		}
+	]
 }

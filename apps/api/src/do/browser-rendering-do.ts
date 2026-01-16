@@ -1,7 +1,6 @@
 import { DurableObject } from "cloudflare:workers";
 import puppeteer, { type Browser } from "@cloudflare/puppeteer";
 import { z } from "zod";
-import { tryCatch } from "#utils/common";
 
 const requestSchema = z.object({
 	templateContent: z.string().nonempty(),
@@ -16,6 +15,7 @@ export class BrowserRenderingDo extends DurableObject<CloudflareBindings> {
 
 	async #ensureBrowser() {
 		if (!this.#browser || !this.#browser?.connected) {
+			//@ts-expect-error
 			this.#browser = await puppeteer.launch(this.env.BROWSER);
 		}
 
